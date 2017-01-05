@@ -2,18 +2,33 @@
 <html>
 <head>
   <title>Slider Example</title>
+  <style>
+    #rightButton { border: 5px solid black; }
+    #leftButton { border: 5px solid red; }
+    #slideFrame {border: 10px solid green; }
+    #slideImg {border: 10px solid purple}
+  </style>
 </head>
 <body>
-  <div class="parent">
+  <div id="parent">
   </div>
   <script src="slider.js"></script>
   <script>
-    const slider = new Slider(100, 100, 'red',
+    const slider = new Slider(
       document.getElementById('parent'), [
-        'https://upload.wikimedia.org/wikipedia/commons/f/f2/6990634-panda-hug.jpg',
-        'https://upload.wikimedia.org/wikipedia/commons/c/cd/Panda_Cub_from_Wolong%2C_Sichuan%2C_China.JPG',
-        'https://c1.staticflickr.com/9/8018/7708851288_c078cbd16e_b.jpg'
-      ], true)
+        {src: 'https://upload.wikimedia.org/wikipedia/commons/f/f2/6990634-panda-hug.jpg',
+          width: 100,
+          height: 100},
+        {src: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Panda_Cub_from_Wolong%2C_Sichuan%2C_China.JPG',
+          width: 100,
+          height: 100},
+        {src: 'https://c1.staticflickr.com/9/8018/7708851288_c078cbd16e_b.jpg',
+          width: 100,
+          height: 100},
+        {src: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+          width: 500,
+          height: 250}
+      ])
     slider.render()
   </script>
 </body>

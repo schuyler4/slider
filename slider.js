@@ -1,29 +1,64 @@
  class Slider {
-  constructor(width, height, color, parent, imgs, debug) {
-    this.width = width,
-    this.height = height
-    this.color = color
+  constructor(parent, imgs) {
     this.parent = parent
     this.imgs = imgs
-    this.debug = debug
+    this.frame = document.createElement('div')
     this.index = 0
+    this.img = document.createElement('img')
   }
 
   render() {
-    if(this.debug) {
-      console.log("debug true")
-      console.log("rendering slider slider(" + this.width +"," +
-        this.height + "," + this.color + ")")
-    }
+    this.parent.appendChild(this.frame)
+    this.frame.id = "slideFrame"
 
-    const frame = document.createElement('div')
-    this.parent.appendChild(mainFrame)
+    this.buttons()
+    this.slides()
   }
 
-  //renderButtons() {
-    //buttons = [document.createElement]
+  slides() {
+    this.img.src = this.imgs[this.index].src
+    this.img.width = this.imgs[this.index].width
+    this.img.height = this.imgs[this.index].height
+    this.img.id = "slideImg"
+    this.frame.appendChild(this.img)
+  }
 
-  //}
+  addIndex(direction) {
+    if(direction == "forward") {
+      this.index < this.imgs.length - 1 ? this.index++ : this.index = 0;
+    }
+    else if(direction == "backward") {
+      this.index > 0 ? this.index -= 1: this.index = this.imgs.length - 1;
+    }
 
+    this.img.src = this.imgs[this.index].src
+    this.img.width = this.imgs[this.index].width
+    this.img.height = this.imgs[this.index].height
+  }
+
+  buttons() {
+    const buttons = [
+      document.createElement('button'),
+      document.createElement('button')
+    ]
+
+    const addIndex = this.addIndex
+    const boundAddIndex = addIndex.bind(this)
+
+    for(var i in buttons) {
+      this.frame.appendChild(buttons[i])
+    }
+
+    buttons[0].addEventListener("click", function() {
+      boundAddIndex("backward")
+    })
+    buttons[0].id = "leftButton"
+
+    buttons[1].addEventListener("click", function() {
+      boundAddIndex("forward")
+    })
+    buttons[1].id = "rightButton"
+
+  }
 
 }

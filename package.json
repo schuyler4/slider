@@ -1,0 +1,24 @@
+{
+  "name": "slider",
+  "version": "1.0.0",
+  "description": "this is a slider that you easly implement into your website",
+  "main": "slider.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schuyler4/slider.git"
+  },
+  "keywords": [
+    "slider",
+    "slide",
+    "slideshow"
+  ],
+  "author": "Marek Newton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/schuyler4/slider/issues"
+  },
+  "homepage": "https://github.com/schuyler4/slider#readme"
+}
